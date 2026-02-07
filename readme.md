@@ -73,6 +73,9 @@ npm install
 ## 2. Install Playwright Browsers
 
 ``` bash
+npm install @playwright/test
+```
+``` bash
 npx playwright install
 ```
 
