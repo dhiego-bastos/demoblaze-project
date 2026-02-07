@@ -2,6 +2,7 @@ import ENV from '../config/env.js';
 import fs from 'fs';
 import path from 'path';
 
+
 function getFormattedTimestamp() {
   const now = new Date();
 
@@ -23,6 +24,12 @@ export function writeProductsToFile(products) {
   const timestamp = getFormattedTimestamp();
 
   const exportsDir = path.resolve('exports');
+
+  // Create folder if it does not exist
+  if (!fs.existsSync(exportsDir)) {
+    fs.mkdirSync(exportsDir, { recursive: true });
+  }
+
   const fileName = `Product_List_${timestamp.fileSafe}.txt`;
   const filePath = path.join(exportsDir, fileName);
 
